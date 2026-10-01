@@ -5,8 +5,11 @@ export const LARGE_MAP = 60;
 
 const naturalOrder = new Intl.Collator(undefined, { numeric: true, sensitivity: "base" });
 
-/** "Unit 03 - Workpapers" and "Part 2: Engagement": a short prefix with a number, a dash or colon, then the text. */
-const NAMED_PREFIX = /^(\S.{0,18}?\d+)(?:\s+[-–—]|\s*:)\s+(.+)$/;
+/**
+ * "Unit 03 - Workpapers", "Part 2: Engagement", "Domain II - Ethics": a short prefix ending in a number (Roman numerals
+ * after a word, made of I, V and X only, so "Vitamin C" and "IIA" are left alone), a dash or colon, then the text.
+ */
+const NAMED_PREFIX = /^(\S.{0,18}?(?:\d+|\s[IVX]+))(?:\s+[-–—]|\s*:)\s+(.+)$/;
 /** "3a. Scope", "4) Reporting", "2.1 Sampling". */
 const NUMBERED_PREFIX = /^(\d+(?:\.\d+)*[a-z]?)[.)]\s+(.+)$|^(\d+(?:\.\d+)+)\s+(.+)$/i;
 

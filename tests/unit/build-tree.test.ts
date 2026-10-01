@@ -132,6 +132,28 @@ describe("splitLabel", () => {
         expect(splitLabel("Part 2: Engagement")).toEqual({ tag: "Part 2", label: "Engagement" });
     });
 
+    test("takes Roman numerals as numbers: the IIA Standards' domains", () => {
+        expect(splitLabel("Domain II - Ethics and Professionalism")).toEqual({
+            tag: "Domain II",
+            label: "Ethics and Professionalism",
+        });
+        expect(splitLabel("Domain I - Purpose of Internal Auditing")).toEqual({
+            tag: "Domain I",
+            label: "Purpose of Internal Auditing",
+        });
+        expect(splitLabel("Section IV: Scope")).toEqual({ tag: "Section IV", label: "Scope" });
+        expect(splitLabel("Standard 9.1 - Understanding Governance")).toEqual({
+            tag: "Standard 9.1",
+            label: "Understanding Governance",
+        });
+    });
+
+    test("does not take a capital letter or an acronym for a Roman numeral", () => {
+        expect(splitLabel("Vitamin C - Facts")).toEqual({ label: "Vitamin C - Facts" });
+        expect(splitLabel("Test - IIA basics")).toEqual({ label: "Test - IIA basics" });
+        expect(splitLabel("IIA - Overview")).toEqual({ label: "IIA - Overview" });
+    });
+
     test("keeps text without a numbered prefix whole", () => {
         expect(splitLabel("Test - IIA basics")).toEqual({ label: "Test - IIA basics" });
         expect(splitLabel("Part1")).toEqual({ label: "Part1" });

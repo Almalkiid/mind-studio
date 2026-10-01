@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.1.1
+
+- Roman numerals count as numbers in tags: "Domain II - Ethics and Professionalism" shows a **Domain II** tag, as the
+  IIA's Global Internal Audit Standards are numbered. Capital letters and acronyms ("Vitamin C", "IIA") are left alone.
+
 ## 0.1.0
 
 First prototype.
