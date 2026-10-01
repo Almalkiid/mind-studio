@@ -1,0 +1,20 @@
+node_modules
+build
+main.js
+data.json
+coverage
+
+# end-to-end tests (wdio-obsidian-service)
+.obsidian-cache
+.e2e-plugin
+tests/e2e/vault/.obsidian
+.e2e-artifacts/
+
+# editors and AI tooling
+.vscode
+.idea
+.claude/
+.DS_Store
+
+# Planning notes stay local
+docs/superpowers/

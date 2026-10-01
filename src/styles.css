@@ -1,0 +1,207 @@
+/* Mind Studio. Colours use Obsidian's variables, so light and dark mode follow the app. */
+
+.workspace-leaf-content .view-content.ms-view {
+    position: relative;
+    overflow: hidden;
+    padding: 0;
+    background: var(--background-primary);
+}
+
+.ms-map {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+}
+
+/* Mind Elixir sets position: relative on this element; it still fills the frame */
+.ms-map-host {
+    width: 100%;
+    height: 100%;
+}
+
+.ms-empty {
+    padding: var(--size-4-6);
+    color: var(--text-muted);
+}
+
+/* Mind Elixir draws its own topic boxes; our cards replace them */
+.ms-map .map-container {
+    background: transparent;
+    font-family: var(--font-interface);
+}
+
+.ms-map .map-container me-tpc,
+.ms-map .map-container me-root me-tpc,
+.ms-map .map-container me-main > me-wrapper > me-parent > me-tpc {
+    max-width: none;
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+}
+
+.ms-map .map-container .selected {
+    outline: none;
+}
+
+.ms-map .map-container svg path {
+    stroke-width: 3.5px;
+    stroke-linecap: round;
+}
+
+.ms-map .map-container .subLines path {
+    stroke-width: 2.2px;
+}
+
+/* The fold buttons carry dark icons, so they get a light disc, inverted in dark mode */
+.ms-map .map-container me-epd {
+    border-radius: 50%;
+    background-color: #ffffff;
+    box-shadow: 0 0 0 1.5px rgba(60, 50, 90, 0.25);
+}
+
+.theme-dark .ms-map .map-container me-epd {
+    filter: invert(0.88);
+}
+
+/* Branch colours: a soft fill and a deeper line colour (the lines come from BRANCH_LINES in the renderer) */
+.ms-branch-0 {
+    --ms-fill: #f9c6d0;
+    --ms-deep: #e57f97;
+}
+.ms-branch-1 {
+    --ms-fill: #fcd6b0;
+    --ms-deep: #ec9a55;
+}
+.ms-branch-2 {
+    --ms-fill: #f8e6a6;
+    --ms-deep: #d9b23c;
+}
+.ms-branch-3 {
+    --ms-fill: #c2ead6;
+    --ms-deep: #4fb98a;
+}
+.ms-branch-4 {
+    --ms-fill: #c3e2f7;
+    --ms-deep: #4fa3dd;
+}
+.ms-branch-5 {
+    --ms-fill: #dccff8;
+    --ms-deep: #9a7fe3;
+}
+
+/* Cards */
+.ms-card {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    max-width: 240px;
+    padding: 9px 14px;
+    border-radius: 16px;
+    color: #2f2b40;
+    background: var(--ms-fill, var(--background-secondary));
+    box-shadow:
+        0 2px 0 color-mix(in srgb, var(--ms-deep, #888) 55%, transparent),
+        0 6px 18px rgba(60, 40, 90, 0.1);
+    font-size: 14.5px;
+    font-weight: 700;
+    line-height: 1.25;
+    white-space: normal;
+}
+
+.ms-card .ms-text {
+    flex: 1 1 auto;
+    min-width: 0;
+}
+
+.ms-card .ms-tag {
+    flex: none;
+    padding: 2px 6px;
+    border-radius: 6px;
+    background: color-mix(in srgb, var(--ms-deep, #888) 22%, transparent);
+    font-size: 11px;
+    font-weight: 800;
+    white-space: nowrap;
+}
+
+.ms-card .ms-count {
+    flex: none;
+    min-width: 20px;
+    padding: 1px 6px;
+    border-radius: 999px;
+    box-shadow: inset 0 0 0 1.5px var(--ms-deep, #888);
+    color: var(--ms-deep, var(--text-muted));
+    font-size: 11px;
+    font-weight: 800;
+    text-align: center;
+}
+
+.ms-card.ms-sub {
+    max-width: 220px;
+    padding: 7px 12px;
+    border-radius: 12px;
+    color: var(--text-normal);
+    background: var(--background-primary);
+    box-shadow:
+        inset 0 0 0 1.5px color-mix(in srgb, var(--ms-deep, #888) 50%, transparent),
+        0 3px 10px rgba(60, 40, 90, 0.06);
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.ms-card.ms-root {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2px;
+    max-width: 300px;
+    padding: 14px 22px;
+    border-radius: 24px;
+    color: #ffffff;
+    background: linear-gradient(135deg, #8b7cf6, #e879a6);
+    box-shadow: 0 10px 30px rgba(139, 124, 246, 0.35);
+    font-size: 22px;
+    font-weight: 800;
+}
+
+.ms-card.ms-root .ms-tag {
+    background: rgba(255, 255, 255, 0.22);
+}
+
+.ms-card.ms-root .ms-meta {
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 13px;
+    font-weight: 700;
+}
+
+/* The selected topic: tapping it again opens it */
+.ms-map me-tpc.selected .ms-card {
+    box-shadow:
+        0 0 0 3px var(--interactive-accent),
+        0 6px 18px rgba(60, 40, 90, 0.16);
+}
+
+/* Dark mode: deep tints of the branch colour instead of pastel fills */
+.theme-dark .ms-card {
+    color: var(--text-normal);
+    background: color-mix(in srgb, var(--ms-fill, #888) 22%, var(--background-primary));
+    box-shadow: inset 0 0 0 1.5px color-mix(in srgb, var(--ms-deep, #888) 70%, transparent);
+}
+
+.theme-dark .ms-card.ms-sub {
+    background: var(--background-secondary);
+    box-shadow: inset 0 0 0 1.5px color-mix(in srgb, var(--ms-deep, #888) 55%, transparent);
+}
+
+.theme-dark .ms-card.ms-root {
+    color: #ffffff;
+    background: linear-gradient(135deg, #7464e8, #d0628f);
+    box-shadow: 0 10px 30px rgba(116, 100, 232, 0.3);
+}
+
+/* A fold button is drawn at 18 px; this gives it a fingertip-sized (44 px) area to tap */
+.ms-map .map-container me-epd::before {
+    content: "";
+    position: absolute;
+    inset: -13px;
+}

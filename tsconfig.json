@@ -1,0 +1,19 @@
+{
+    "compilerOptions": {
+        "paths": {
+            "src/*": ["./src/*"]
+        },
+        "module": "ESNext",
+        "target": "ES2018",
+        "moduleResolution": "bundler",
+        "esModuleInterop": true,
+        "importHelpers": true,
+        "strict": true,
+        "noImplicitAny": true,
+        "types": ["node", "jest"],
+        "lib": ["dom", "dom.Iterable", "ES2021"],
+        "noEmit": true
+    },
+    "include": ["src/**/*", "tests/unit/**/*"],
+    "exclude": ["build", "node_modules", "tests/e2e"]
+}

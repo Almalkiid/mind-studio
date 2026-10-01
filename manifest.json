@@ -1,0 +1,10 @@
+{
+    "id": "mind-studio",
+    "name": "Mind Studio",
+    "version": "0.1.0",
+    "minAppVersion": "1.11.4",
+    "description": "Your vault as a colourful mind map: folders, notes and headings as branches you can fold, on desktop and mobile.",
+    "author": "Almalkiid",
+    "authorUrl": "https://github.com/Almalkiid",
+    "isDesktopOnly": false
+}

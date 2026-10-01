@@ -1,0 +1,45 @@
+{
+    "name": "mind-studio",
+    "version": "0.1.0",
+    "description": "Your vault as a colourful mind map: folders, notes and headings as branches you can fold, on desktop and mobile.",
+    "main": "main.js",
+    "scripts": {
+        "build": "tsc -noEmit -skipLibCheck && node esbuild.config.mjs production",
+        "dev": "node esbuild.config.mjs",
+        "lint": "eslint src/ tests/unit/",
+        "test": "jest",
+        "test:e2e": "node esbuild.config.mjs production && node tests/e2e/stage-plugin.mjs && wdio run ./wdio.conf.mts"
+    },
+    "keywords": ["obsidian", "mind map", "mindmap", "map of content", "study"],
+    "author": "Almalkiid",
+    "license": "MIT",
+    "dependencies": {
+        "mind-elixir": "5.15.1"
+    },
+    "devDependencies": {
+        "@eslint/js": "^10.0.1",
+        "@types/jest": "^30.0.0",
+        "@types/mocha": "^10.0.10",
+        "@types/node": "^25.9.5",
+        "@wdio/cli": "^9.32.0",
+        "@wdio/globals": "^9.31.3",
+        "@wdio/local-runner": "^9.32.0",
+        "@wdio/mocha-framework": "^9.32.0",
+        "@wdio/spec-reporter": "^9.32.0",
+        "esbuild": "^0.28.1",
+        "eslint": "^10.8.0",
+        "eslint-plugin-obsidianmd": "^0.4.2",
+        "jest": "^30.4.2",
+        "mocha": "^10.8.2",
+        "obsidian": "^1.13.1",
+        "ts-jest": "^29.4.12",
+        "tslib": "^2.8.1",
+        "typescript": "~5.9.3",
+        "typescript-eslint": "^8.65.0",
+        "wdio-obsidian-reporter": "3.2.1",
+        "wdio-obsidian-service": "3.2.1"
+    },
+    "pnpm": {
+        "onlyBuiltDependencies": ["esbuild"]
+    }
+}
